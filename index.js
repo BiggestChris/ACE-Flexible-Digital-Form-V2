@@ -62,26 +62,34 @@ onValue(databaseInfo, function(snapshot) {
 
 });
 
-// Function to handle the input event and push data to Firebase
+let inputTimeout;
+
+// Function to handle the input event and push data to Firebase with a delay
 function handleInputChange() {
-    let fieldValues = [];
-    let inputValues = [];
+    clearTimeout(inputTimeout); // Clear any existing timeout
 
-    for (let i = 0; i < fieldsAndInputs.length; i++)
-    {
-        fieldValues[i] = fieldsAndInputs[i].field.textContent;
-        inputValues[i] = fieldsAndInputs[i].input.value;
-    }
+    inputTimeout = setTimeout(() => {
+
+        let fieldValues = [];
+        let inputValues = [];
+
+        for (let i = 0; i < fieldsAndInputs.length; i++)
+        {
+            fieldValues[i] = fieldsAndInputs[i].field.textContent;
+            inputValues[i] = fieldsAndInputs[i].input.value;
+        }
+        
+        let databaseObject = {};
+
+        for (let i = 0; i < fieldsAndInputs.length; i++)
+        {
+            databaseObject[fieldValues[i]] = inputValues[i];
+        }
+        databaseObject.timestamp = timestamp(); // Adds in a timestamp to the database entry for future data sorting of entries
+
+        push(databaseInfo, databaseObject);
     
-    let databaseObject = {};
-
-    for (let i = 0; i < fieldsAndInputs.length; i++)
-    {
-        databaseObject[fieldValues[i]] = inputValues[i];
-    }
-    databaseObject.timestamp = timestamp(); // Adds in a timestamp to the database entry for future data sorting of entries
-
-    push(databaseInfo, databaseObject);
+    }, 500); // Adjust the delay time (in milliseconds) as needed
 }
 
 // Add event listener to each input field
