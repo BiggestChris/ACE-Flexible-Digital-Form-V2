@@ -29,6 +29,7 @@ for (let i = 0; i < fieldsAndInputs.length; i++)
     inputFields[i] = fieldsAndInputs[i].input;
 }
 
+let downloadTimeout;
 
 // Function for the initial data download
 function initialDataDownload() {
@@ -99,7 +100,10 @@ function handleInputChange() {
 
 // Add event listener to each input field
 inputFields.forEach((inputElement) => {
-    inputElement.addEventListener('input', delayedDataDownload);
+    inputElement.addEventListener('input', function () {
+        handleInputChange();
+        delayedDataDownload();
+    });
 });
 
 // Trigger the initial data download on page load
