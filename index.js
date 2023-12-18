@@ -46,10 +46,8 @@ onValue(databaseInfo, function(snapshot) {
     // Reverse the array to have the latest timestamp at index 0
     itemsArray.reverse();
     
-    // Pull out first object in array, as that will be latest timestamp
+    // Pull out first object in array, and second level (as first contains object title), as that will be latest timestamp
     let item = itemsArray[0][1];
-
-    console.log(item);
 
     // Need to add a check that the field is present
     for (let i = 0; i < fieldsAndInputs.length; i++)
@@ -60,12 +58,9 @@ onValue(databaseInfo, function(snapshot) {
         {
             fieldsAndInputs[i].input.value = item[fieldIdentifier];
         }
-        console.log(fieldIdentifier);
     }
 
 });
-
-/* Temporarily disable uploading to database
 
 // Function to handle the input event and push data to Firebase
 function handleInputChange() {
