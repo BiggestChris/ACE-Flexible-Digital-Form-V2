@@ -100,7 +100,7 @@ function handleInputChange() {
 
 // Add event listener to each input field for immediate handling
 inputFields.forEach((inputElement) => {
-    inputElement.addEventListener('input', function () {
+    inputElement.addEventListener('change', function () {
         // Handle input changes immediately
         handleInputChange();
     });
