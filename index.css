@@ -1,0 +1,86 @@
+html, body {
+    margin: 0;
+    padding: 10px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.field {
+    margin: 5px 0;
+    border: black 1px solid;
+    border-radius: 5px;
+    padding: 10px;  
+    display: flex;
+}
+
+.field, button {
+    width: 100%;
+    max-width: 800px;
+}
+
+.field-descriptor {
+    margin-top: 0;
+    min-width: 200px;
+    width: 40%;
+}
+
+input, textarea {
+    padding: 5px;
+    min-width: 200px;
+    width: 60%;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+#page {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 85%;
+    min-width: 450px;
+}
+
+button {
+    margin-top: 10px;
+    height: 50px;
+    width: 200px;
+}
+
+/* CSS to target tablets and mobiles */
+@media (max-width: 768px) {
+    html, body {
+        font-size: 20px;
+    }
+
+    .field {
+        flex-direction: column;
+        width: 80%; /* Set it lower as space needed to use thumb to scroll down for larger forms */
+    }
+
+    .field-descriptor
+    {
+        width: 90%;
+        min-width: 30px;
+    }
+
+    input, textarea {
+        width: 95%;
+        font-size: 20px;
+    }
+
+    input {
+        height: 50px;
+    }
+
+    textarea {
+        height: 150px;
+    }
+
+    #page {
+        min-width: 0;
+    }
+
+    button {
+        font-size: 20px;
+    }
+}
