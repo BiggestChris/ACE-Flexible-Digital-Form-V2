@@ -49,6 +49,8 @@ onValue(databaseInfo, function(snapshot) {
     // Pull out first object in array, as that will be latest timestamp
     let item = itemsArray[0];
 
+    console.log(item);
+
     // Need to add a check that the field is present
     for (let i = 0; i < fieldsAndInputs.length; i++)
     {
