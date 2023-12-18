@@ -99,6 +99,16 @@ function handleInputChange() {
     
 }
 
+// Function to clear the delayed download timeout
+function clearDownloadTimeout() {
+    clearTimeout(downloadTimeout);
+}
+
+// Add a single event listener for all input fields to clear the timeout
+inputFields.forEach((inputElement) => {
+    inputElement.addEventListener('input', clearDownloadTimeout);
+});
+
 // Add event listener to each input field for immediate handling
 inputFields.forEach((inputElement) => {
     inputElement.addEventListener('change', function () {
