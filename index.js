@@ -58,6 +58,7 @@ onValue(databaseInfo, function(snapshot) {
         {
             fieldsAndInputs[i][input].value = item[fieldsAndInputs[i].field];
         }
+        console.log(fieldsAndInputs[i])
     }
 
 });
