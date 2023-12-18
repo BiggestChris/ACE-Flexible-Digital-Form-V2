@@ -10,6 +10,7 @@ const database = getDatabase(app);
 const databaseInfo = ref(database, "Flight-info");
 
 const numberOfInputs = 4; // Currently set how many inputs here
+const delayTimer = 0; // Milliseconds to delay download of database info after change
 
 let fieldsAndInputs = [];
 for (let i = 0; i < numberOfInputs; i++)
@@ -71,7 +72,7 @@ function delayedDataDownload() {
 
     downloadTimeout = setTimeout(() => {
         initialDataDownload(); // Call the function to fetch data after a delay
-    }, 2000); // Adjust the delay time (in milliseconds) as needed
+    }, delayTimer); // Adjust the delay time (in milliseconds) as needed
 }
 
 // Function to handle the input event and push data to Firebase with no delay
