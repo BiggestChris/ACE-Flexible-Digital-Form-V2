@@ -11,6 +11,7 @@ const databaseInfo = ref(database, "Flight-info");
 
 const numberOfInputs = 4; // Currently set how many inputs here
 const delayTimer = 2000; // Milliseconds to delay download of database info after change
+const refreshBtn = document.getElementById("refresh-btn");
 
 let fieldsAndInputs = [];
 for (let i = 0; i < numberOfInputs; i++)
@@ -142,6 +143,8 @@ function timestamp() {
     return time;
 }
 
+// Put in a manual refresh button, as currently still a bit janky in terms of download/upload - wanted to avoid consistent calls to the database to check
+refreshBtn.addEventListener("click", initialDataDownload());
 
 // Old button upload below, currently disabled but kept in in case needed
 
