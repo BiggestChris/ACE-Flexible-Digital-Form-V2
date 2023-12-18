@@ -30,49 +30,48 @@ for (let i = 0; i < fieldsAndInputs.length; i++)
 }
 
 
-// Function to pull info from Database after a delay
-function handleDataDownload() {
+// Function for the initial data download
+function initialDataDownload() {
+    // Your logic to pull data from the database
+
+    // Function to pull info from Database, specifically the object data from the most recent timestamp
+    onValue(databaseInfo, function(snapshot) {
+        let itemsArray = Object.entries(snapshot.val());
+
+        // Sort the array based on the 'timestamp' property (as strings)
+        itemsArray.sort((a, b) => {
+            const timestampA = a[1].timestamp || ''; // Use an empty string if timestamp is undefined
+            const timestampB = b[1].timestamp || ''; // Use an empty string if timestamp is undefined
+        
+            // Using localeCompare for lexicographical comparison
+            return timestampA.localeCompare(timestampB);
+        });
+
+        // Reverse the array to have the latest timestamp at index 0
+        itemsArray.reverse();
+        
+        // Pull out the first object in the array (as first contains object title), as that will be the latest timestamp
+        let item = itemsArray[0][1];
+
+        // Need to add a check that the field is present
+        for (let i = 0; i < fieldsAndInputs.length; i++) {
+            let fieldIdentifier = fieldsAndInputs[i].field.textContent;
+            fieldsAndInputs[i].input.value = 1;
+            if (item[fieldIdentifier]) {
+                fieldsAndInputs[i].input.value = item[fieldIdentifier];
+            }
+        }
+    });
+}
+
+// Function for the delayed data download after an input change
+function delayedDataDownload() {
     clearTimeout(downloadTimeout); // Clear any existing timeout
 
     downloadTimeout = setTimeout(() => {
-        // Your logic to pull data from the database
-
-        // Function to pull info from Database, specifically the object data from the most recent timestamp
-        onValue(databaseInfo, function(snapshot) {
-
-            let itemsArray = Object.entries(snapshot.val())
-            
-            // Sort the array based on the 'timestamp' property (as strings)
-            itemsArray.sort((a, b) => {
-                const timestampA = a[1].timestamp || ''; // Use an empty string if timestamp is undefined
-                const timestampB = b[1].timestamp || ''; // Use an empty string if timestamp is undefined
-            
-                // Using localeCompare for lexicographical comparison
-                return timestampA.localeCompare(timestampB);
-            });
-
-            // Reverse the array to have the latest timestamp at index 0
-            itemsArray.reverse();
-            
-            // Pull out first object in array, and second level (as first contains object title), as that will be latest timestamp
-            let item = itemsArray[0][1];
-
-            // Need to add a check that the field is present
-            for (let i = 0; i < fieldsAndInputs.length; i++)
-            {
-                let fieldIdentifier = fieldsAndInputs[i].field.textContent;
-                fieldsAndInputs[i].input.value = 1;
-                if (item[fieldIdentifier])
-                {
-                    fieldsAndInputs[i].input.value = item[fieldIdentifier];
-                }
-            }
-
-        });
+        initialDataDownload(); // Call the function to fetch data after a delay
     }, 500); // Adjust the delay time (in milliseconds) as needed
 }
-
-let inputTimeout;
 
 // Function to handle the input event and push data to Firebase with a delay
 function handleInputChange() {
@@ -100,8 +99,11 @@ function handleInputChange() {
 
 // Add event listener to each input field
 inputFields.forEach((inputElement) => {
-    inputElement.addEventListener('input', handleInputChange);
+    inputElement.addEventListener('input', delayedDataDownload);
 });
+
+// Trigger the initial data download on page load
+initialDataDownload();
 
 // Timestamp function to calculate time down to milliseconds
 function timestamp() {
