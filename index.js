@@ -56,9 +56,9 @@ onValue(databaseInfo, function(snapshot) {
     {
         if (item[fieldsAndInputs[i].field])
         {
-            fieldsAndInputs[i][input].value = item[fieldsAndInputs[i].field];
+            fieldsAndInputs[i][input].value = 1;
         }
-        console.log(fieldsAndInputs[i])
+        console.log(fieldsAndInputs[i]);
     }
 
 });
