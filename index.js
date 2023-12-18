@@ -98,13 +98,16 @@ function handleInputChange() {
     
 }
 
-// Add event listener to each input field
+// Add event listener to each input field for immediate handling
 inputFields.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
+        // Handle input changes immediately
         handleInputChange();
-        delayedDataDownload();
     });
 });
+
+// Add a single event listener for all input fields for delayed data download
+document.addEventListener('input', delayedDataDownload);
 
 // Trigger the initial data download on page load
 initialDataDownload();
