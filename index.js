@@ -74,7 +74,7 @@ function delayedDataDownload() {
     }, 2000); // Adjust the delay time (in milliseconds) as needed
 }
 
-// Function to handle the input event and push data to Firebase with a delay
+// Function to handle the input event and push data to Firebase with no delay
 function handleInputChange() {
 
     let fieldValues = [];
@@ -97,11 +97,6 @@ function handleInputChange() {
     push(databaseInfo, databaseObject);
     
 }
-
-// Add event listeners to detect user activity
-document.addEventListener('keydown', () => {
-    delayedDataDownload(); // Reset the timer on key press
-});
 
 // Add event listener to each input field
 inputFields.forEach((inputElement) => {
