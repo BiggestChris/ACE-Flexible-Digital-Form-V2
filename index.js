@@ -10,7 +10,7 @@ const database = getDatabase(app);
 const databaseInfo = ref(database, "Flight-info");
 
 const numberOfInputs = 4; // Currently set how many inputs here
-const delayTimer = 0; // Milliseconds to delay download of database info after change
+const delayTimer = 2000; // Milliseconds to delay download of database info after change
 
 let fieldsAndInputs = [];
 for (let i = 0; i < numberOfInputs; i++)
