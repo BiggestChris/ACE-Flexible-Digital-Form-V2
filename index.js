@@ -36,8 +36,8 @@ onValue(databaseInfo, function(snapshot) {
     
     // Sort the array based on the 'timestamp' property (as strings)
     itemsArray.sort((a, b) => {
-        const timestampA = a[1].timestamp;
-        const timestampB = b[1].timestamp;
+        const timestampA = a[1].timestamp || ''; // Use an empty string if timestamp is undefined
+        const timestampB = b[1].timestamp || ''; // Use an empty string if timestamp is undefined
     
         // Using localeCompare for lexicographical comparison
         return timestampA.localeCompare(timestampB);
