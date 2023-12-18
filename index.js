@@ -55,7 +55,7 @@ onValue(databaseInfo, function(snapshot) {
     for (let i = 0; i < fieldsAndInputs.length; i++)
     {
         fieldsAndInputs[i].input.value = 1;
-        if (item[fieldsAndInputs[i].field])
+        if (item.fieldsAndInputs[i].field)
         {
             fieldsAndInputs[i].input.value = 2;
         }
