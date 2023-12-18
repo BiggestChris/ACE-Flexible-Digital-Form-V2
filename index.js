@@ -54,7 +54,7 @@ onValue(databaseInfo, function(snapshot) {
     // Need to add a check that the field is present
     for (let i = 0; i < fieldsAndInputs.length; i++)
     {
-        let fieldIdentifier = fieldsAndInputs[i].field;
+        let fieldIdentifier = fieldsAndInputs[i].field.textContent;
         fieldsAndInputs[i].input.value = 1;
         if (item[fieldIdentifier])
         {
