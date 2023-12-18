@@ -107,7 +107,7 @@ inputFields.forEach((inputElement) => {
 });
 
 // Add a single event listener for all input fields for delayed data download
-document.addEventListener('input', delayedDataDownload);
+document.addEventListener('change', delayedDataDownload);
 
 // Trigger the initial data download on page load
 initialDataDownload();
