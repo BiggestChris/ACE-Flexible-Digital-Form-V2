@@ -60,7 +60,7 @@ onValue(databaseInfo, function(snapshot) {
         {
             fieldsAndInputs[i].input.value = item[fieldIdentifier];
         }
-        console.log(fieldsAndInputs[i]);
+        console.log(fieldIdentifier);
     }
 
 });
