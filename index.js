@@ -29,67 +29,73 @@ for (let i = 0; i < fieldsAndInputs.length; i++)
     inputFields[i] = fieldsAndInputs[i].input;
 }
 
-// Function to pull info from Database, specifically the object data from the most recent timestamp
-onValue(databaseInfo, function(snapshot) {
 
-    let itemsArray = Object.entries(snapshot.val())
-    
-    // Sort the array based on the 'timestamp' property (as strings)
-    itemsArray.sort((a, b) => {
-        const timestampA = a[1].timestamp || ''; // Use an empty string if timestamp is undefined
-        const timestampB = b[1].timestamp || ''; // Use an empty string if timestamp is undefined
-    
-        // Using localeCompare for lexicographical comparison
-        return timestampA.localeCompare(timestampB);
-    });
+// Function to pull info from Database after a delay
+function handleDataDownload() {
+    clearTimeout(downloadTimeout); // Clear any existing timeout
 
-    // Reverse the array to have the latest timestamp at index 0
-    itemsArray.reverse();
-    
-    // Pull out first object in array, and second level (as first contains object title), as that will be latest timestamp
-    let item = itemsArray[0][1];
+    downloadTimeout = setTimeout(() => {
+        // Your logic to pull data from the database
 
-    // Need to add a check that the field is present
-    for (let i = 0; i < fieldsAndInputs.length; i++)
-    {
-        let fieldIdentifier = fieldsAndInputs[i].field.textContent;
-        fieldsAndInputs[i].input.value = 1;
-        if (item[fieldIdentifier])
-        {
-            fieldsAndInputs[i].input.value = item[fieldIdentifier];
-        }
-    }
+        // Function to pull info from Database, specifically the object data from the most recent timestamp
+        onValue(databaseInfo, function(snapshot) {
 
-});
+            let itemsArray = Object.entries(snapshot.val())
+            
+            // Sort the array based on the 'timestamp' property (as strings)
+            itemsArray.sort((a, b) => {
+                const timestampA = a[1].timestamp || ''; // Use an empty string if timestamp is undefined
+                const timestampB = b[1].timestamp || ''; // Use an empty string if timestamp is undefined
+            
+                // Using localeCompare for lexicographical comparison
+                return timestampA.localeCompare(timestampB);
+            });
+
+            // Reverse the array to have the latest timestamp at index 0
+            itemsArray.reverse();
+            
+            // Pull out first object in array, and second level (as first contains object title), as that will be latest timestamp
+            let item = itemsArray[0][1];
+
+            // Need to add a check that the field is present
+            for (let i = 0; i < fieldsAndInputs.length; i++)
+            {
+                let fieldIdentifier = fieldsAndInputs[i].field.textContent;
+                fieldsAndInputs[i].input.value = 1;
+                if (item[fieldIdentifier])
+                {
+                    fieldsAndInputs[i].input.value = item[fieldIdentifier];
+                }
+            }
+
+        });
+    }, 500); // Adjust the delay time (in milliseconds) as needed
+}
 
 let inputTimeout;
 
 // Function to handle the input event and push data to Firebase with a delay
 function handleInputChange() {
-    clearTimeout(inputTimeout); // Clear any existing timeout
 
-    inputTimeout = setTimeout(() => {
+    let fieldValues = [];
+    let inputValues = [];
 
-        let fieldValues = [];
-        let inputValues = [];
-
-        for (let i = 0; i < fieldsAndInputs.length; i++)
-        {
-            fieldValues[i] = fieldsAndInputs[i].field.textContent;
-            inputValues[i] = fieldsAndInputs[i].input.value;
-        }
-        
-        let databaseObject = {};
-
-        for (let i = 0; i < fieldsAndInputs.length; i++)
-        {
-            databaseObject[fieldValues[i]] = inputValues[i];
-        }
-        databaseObject.timestamp = timestamp(); // Adds in a timestamp to the database entry for future data sorting of entries
-
-        push(databaseInfo, databaseObject);
+    for (let i = 0; i < fieldsAndInputs.length; i++)
+    {
+        fieldValues[i] = fieldsAndInputs[i].field.textContent;
+        inputValues[i] = fieldsAndInputs[i].input.value;
+    }
     
-    }, 500); // Adjust the delay time (in milliseconds) as needed
+    let databaseObject = {};
+
+    for (let i = 0; i < fieldsAndInputs.length; i++)
+    {
+        databaseObject[fieldValues[i]] = inputValues[i];
+    }
+    databaseObject.timestamp = timestamp(); // Adds in a timestamp to the database entry for future data sorting of entries
+
+    push(databaseInfo, databaseObject);
+    
 }
 
 // Add event listener to each input field
