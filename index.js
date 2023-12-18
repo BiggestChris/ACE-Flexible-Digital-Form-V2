@@ -54,10 +54,10 @@ onValue(databaseInfo, function(snapshot) {
     // Need to add a check that the field is present
     for (let i = 0; i < fieldsAndInputs.length; i++)
     {
-        fieldsAndInputs[i][input].value = 1;
+        fieldsAndInputs[i].input.value = 1;
         if (item[fieldsAndInputs[i].field])
         {
-            fieldsAndInputs[i][input].value = 2;
+            fieldsAndInputs[i].input.value = 2;
         }
         console.log(fieldsAndInputs[i]);
     }
