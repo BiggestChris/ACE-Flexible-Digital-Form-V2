@@ -47,7 +47,7 @@ onValue(databaseInfo, function(snapshot) {
     itemsArray.reverse();
     
     // Pull out first object in array, as that will be latest timestamp
-    let item = itemsArray[0];
+    let item = itemsArray[0][1];
 
     console.log(item);
 
