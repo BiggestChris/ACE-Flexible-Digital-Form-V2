@@ -29,6 +29,39 @@ for (let i = 0; i < fieldsAndInputs.length; i++)
     inputFields[i] = fieldsAndInputs[i].input;
 }
 
+// Function to pull info from Database, specifically the object data from the most recent timestamp
+onValue(databaseInfo, function(snapshot) {
+
+    let itemsArray = Object.entries(snapshot.val())
+    
+    // Sort the array based on the 'timestamp' property (as strings)
+    itemsArray.sort((a, b) => {
+        const timestampA = a[1].timestamp;
+        const timestampB = b[1].timestamp;
+    
+        // Using localeCompare for lexicographical comparison
+        return timestampA.localeCompare(timestampB);
+    });
+
+    // Reverse the array to have the latest timestamp at index 0
+    itemsArray.reverse();
+    
+    // Pull out first object in array, as that will be latest timestamp
+    let item = itemsArray[0];
+
+    // Need to add a check that the field is present
+    for (let i = 0; i < fieldsAndInputs.length; i++)
+    {
+        if (item[fieldsAndInputs[i].field])
+        {
+            fieldsAndInputs[i][input].value = item[fieldsAndInputs[i].field];
+        }
+    }
+
+});
+
+/* Temporarily disable uploading to database
+
 // Function to handle the input event and push data to Firebase
 function handleInputChange() {
     let fieldValues = [];
@@ -74,6 +107,7 @@ function timestamp() {
     let time = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}:${milliseconds}`
     return time;
 }
+
 
 // Old button upload below, currently disabled but kept in in case needed
 
