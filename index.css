@@ -68,10 +68,11 @@ button {
 
 .sub-field {
     display: flex;
+    flex-direction: column;
 }
 
 .indent {
-    
+
 }
 
 /* CSS to target tablets and mobiles */
