@@ -66,6 +66,14 @@ button {
     margin-left: -80px;
 }
 
+.sub-field {
+    display: flex;
+}
+
+.indent {
+    
+}
+
 /* CSS to target tablets and mobiles */
 @media (max-width: 768px) {
     html, body {
