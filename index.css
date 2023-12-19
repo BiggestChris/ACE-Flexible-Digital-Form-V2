@@ -73,7 +73,13 @@ button {
 
 .sub-field {
     display: flex;
+    flex-direction: column;
     width: 100%;
+}
+
+.sub-field p {
+    display: inline-block; /* or inline, depending on your preference */
+    margin-right: 10px; /* or any other margin you prefer */
 }
 
 .indent {
