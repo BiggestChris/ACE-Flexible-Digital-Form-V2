@@ -78,8 +78,8 @@ button {
     align-items: center;
 }
 
-.sub-field p {
-    margin-right: 10px; /* or any other margin you prefer */
+.sub-field > p {
+    margin-top: auto; /* or any other margin you prefer */
 }
 
 .indent {
