@@ -143,6 +143,10 @@ function timestamp() {
 }
 
 
+
+
+// Field info database - may make sense to keep in another script
+
 // Details on database to manage field information for webform itself
 const fieldInfo = ref(database, "Field-info");
 const uploadBtn = document.getElementById("upload-btn");
@@ -150,20 +154,25 @@ const fieldOrder = document.getElementById("field-order");
 const fieldName = document.getElementById("field-name");
 const fieldType = document.getElementsByName("field-type");
 
-// Iterate through radio buttons to pull value of one selected
-let selectedValue;
-let selectedType;
-for (const selectedFieldType of fieldType) {
-  if (selectedFieldType.checked) {
-    selectedValue = selectedFieldType.value;
-    selectedType = selectedFieldType;
-    break;
-  }
-}
+console.log(fieldType);
+
 
 uploadBtn.addEventListener("click", function() {
     let orderValue = fieldOrder.value;
     let fieldValue = fieldName.value;
+
+    // Iterate through radio buttons to pull value of one selected
+    let selectedValue;
+    let selectedType;
+    for (const selectedFieldType of fieldType) {
+        if (selectedFieldType.checked) {
+            console.log(selectedFieldType);
+            selectedValue = selectedFieldType.value;
+            selectedType = selectedFieldType;
+            break;
+        }
+    }
+
     let typeValue = selectedValue;
     
     push(fieldInfo, {
