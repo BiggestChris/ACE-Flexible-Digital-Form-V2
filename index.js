@@ -142,6 +142,56 @@ function timestamp() {
     return time;
 }
 
+
+// Details on database to manage field information for webform itself
+const fieldInfo = ref(database, "Field-info");
+const uploadBtn = document.getElementById("upload-btn");
+const fieldOrder = document.getElementById("field-order");
+const fieldName = document.getElementById("field-name");
+const fieldType = document.getElementsByName("field-type");
+
+// Iterate through radio buttons to pull value of one selected
+let selectedValue;
+let selectedType;
+for (const selectedFieldType of fieldType) {
+  if (selectedFieldType.checked) {
+    selectedValue = selectedFieldType.value;
+    selectedType = selectedFieldType;
+    break;
+  }
+}
+
+uploadBtn.addEventListener("click", function() {
+    let orderValue = fieldOrder.value;
+    let fieldValue = fieldName.value;
+    let typeValue = selectedValue;
+    
+    push(fieldInfo, {
+        order: orderValue,
+        field: fieldValue,
+        type: typeValue
+    });
+    
+    fieldOrder.value = "";
+    fieldName.value = "";
+    selectedType.checked = false;
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 // Put in a manual refresh button, as currently still a bit janky in terms of download/upload - wanted to avoid consistent calls to the database to check
 const refreshBtn = document.getElementById("refresh-btn");

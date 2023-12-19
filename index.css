@@ -23,7 +23,7 @@ html, body {
     width: 40%;
 }
 
-input, textarea {
+input, textarea, .radio-block {
     padding: 5px;
     min-width: 200px;
     width: 60%;
@@ -44,6 +44,26 @@ button {
     margin-top: 10px;
     height: 50px;
     width: 200px;
+}
+
+.radio-inputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.radio-block {
+    align-items: start;
+    justify-content: center;
+}
+
+.radio-btn {
+    width: 20px;
+    margin-left: -40px;
+}
+
+.radio-lbl {
+    margin-left: -80px;
 }
 
 /* CSS to target tablets and mobiles */
@@ -82,5 +102,25 @@ button {
 
     button {
         font-size: 20px;
+    }
+
+    .radio-block {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        text-align: middle;
+    }
+
+    .radio-btn {
+        width: 10px;
+        display: inline-block;
+        margin-left: 0;
+    }
+    
+    .radio-lbl {
+        width: 150px;
+        margin-left: -40px;
+        margin-right: auto;
     }
 }
