@@ -75,6 +75,7 @@ button {
 .sub-field {
     display: flex;
     width: 100%;
+    align-items: center;
 }
 
 .sub-field p {
