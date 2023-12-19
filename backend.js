@@ -78,12 +78,14 @@ onValue(fieldInfo, function(snapshot) {
         currentFields.innerHTML += 
         `
         <hr>
-        <div class="field"><p class="field-descriptor">field:</p><p>${i}</p></div>
-        <div class="field"><p class="field-descriptor">field-key:</p><p>${itemsArray[i][0]}</p></div>
-        <div class="indent">
-        <div class="field"><p class="field-descriptor">order #:</p><p class="current-item">${item.order}</p></div>
-            <div class="field"><p class="field-descriptor">name:</p><p class="current-item">${item.field}</p></div>
-            <div class="field"><p class="field-descriptor">price:</p><p class="current-item">${item.type}</p></div>
+        <div class="field">
+            <div ><p class="field-descriptor">field:</p><p>${i}</p></div>
+            <div ><p class="field-descriptor">field-key:</p><p>${itemsArray[i][0]}</p></div>
+            <div class="indent">
+                <div ><p class="field-descriptor">order #:</p><p class="current-item">${item.order}</p></div>
+                <div ><p class="field-descriptor">name:</p><p class="current-item">${item.field}</p></div>
+                <div ><p class="field-descriptor">price:</p><p class="current-item">${item.type}</p></div>
+            </div>
         </div>
         `
         
