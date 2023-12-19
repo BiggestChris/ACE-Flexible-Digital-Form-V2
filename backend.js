@@ -22,6 +22,7 @@ for (const selectedFieldType of fieldType) {
   if (selectedFieldType.checked) {
     selectedValue = selectedFieldType.value;
     selectedType = selectedFieldType;
+    console.log(selectedFieldType);
     break;
   }
 }
