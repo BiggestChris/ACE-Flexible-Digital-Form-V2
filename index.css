@@ -66,9 +66,13 @@ button {
     margin-left: -80px;
 }
 
-.sub-field {
+.field-category {
     display: flex;
     flex-direction: column;
+}
+
+.sub-field {
+    display: flex;
 }
 
 .indent {
