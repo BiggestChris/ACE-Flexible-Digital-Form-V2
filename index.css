@@ -70,6 +70,7 @@ button {
     display: flex;
     flex-direction: column;
     border: black 1px solid;
+    padding: 5px;
 }
 
 .sub-field {
@@ -80,6 +81,10 @@ button {
 
 .sub-field > p {
     margin-top: auto; /* or any other margin you prefer */
+}
+
+.sub-field > .field-descriptor {
+    width: 20%;
 }
 
 .indent {
