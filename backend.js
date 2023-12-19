@@ -47,3 +47,55 @@ uploadBtn.addEventListener("click", function() {
     selectedType.checked = false;
 
 })
+
+// Pull out the list of fields currently in the database
+
+const sortedQuery = query(fieldInfo, orderByChild('order'));
+const currentFields = document.getElementById("current-fields");
+
+onValue(fieldInfo, function(snapshot) {
+    
+    let itemsArray = Object.entries(snapshot.val());
+    itemsArray.sort(compareByOrder);
+    
+    
+    currentFields.innerHTML = ""
+    
+    function compareByOrder(a, b) {
+        return a[1].order - b[1].order;
+    }
+    
+    /* let dummyArray = [];
+    
+    for (let i = 0; i < itemsArray.length; i++) {
+        dummyArray.push(Number(itemsArray[i][1].order));
+    } */
+    
+    for (let i = 0; i < itemsArray.length; i++) {
+        let item = itemsArray[i][1]
+             
+        
+        currentFields.innerHTML += 
+        `
+        <hr>
+        <div class="output-line"><p class="id-item-descriptor">field:</p><p>${i}</p></div>
+        <div class="output-line"><p class="id-item-descriptor">field-key:</p><p>${itemsArray[i][0]}</p></div>
+        <div class="indent">
+            <div class="output-line"><p class="current-item-descriptor">order #:</p><p class="current-item">${item.order}</p></div>
+            <div class="output-line"><p class="current-item-descriptor">name:</p><p class="current-item">${item.field}</p></div>
+            <div class="output-line"><p class="current-item-descriptor">price:</p><p class="current-item">${item.type}</p></div>
+        </div>
+        `
+        
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "remove";
+        
+        currentFields.appendChild(removeButton);
+        
+        removeButton.addEventListener("click", function() {
+            let exactLocationOfItemInDB = ref(database, `Field-info/${itemsArray[i][0]}`)
+            
+            remove(exactLocationOfItemInDB);
+        })
+    }
+})
