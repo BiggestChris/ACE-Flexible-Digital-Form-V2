@@ -73,6 +73,7 @@ button {
 
 .sub-field {
     display: flex;
+    width: 100%;
 }
 
 .indent {
