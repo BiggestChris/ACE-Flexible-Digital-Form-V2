@@ -69,6 +69,7 @@ button {
 .field-category {
     display: flex;
     flex-direction: column;
+    border: black 1px solid;
 }
 
 .sub-field {
@@ -81,7 +82,7 @@ button {
 }
 
 .indent {
-
+    padding-left: 20px;
 }
 
 /* CSS to target tablets and mobiles */
