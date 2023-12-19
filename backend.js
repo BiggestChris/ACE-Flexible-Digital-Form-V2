@@ -15,6 +15,8 @@ const fieldOrder = document.getElementById("field-order");
 const fieldName = document.getElementById("field-name");
 const fieldType = document.getElementsByName("field-type");
 
+console.log(fieldType);
+
 // Iterate through radio buttons to pull value of one selected
 let selectedValue;
 let selectedType;
@@ -22,10 +24,11 @@ for (const selectedFieldType of fieldType) {
   if (selectedFieldType.checked) {
     selectedValue = selectedFieldType.value;
     selectedType = selectedFieldType;
-    console.log(selectedFieldType);
     break;
   }
 }
+
+console.log(selectedValue);
 
 uploadBtn.addEventListener("click", function() {
     let orderValue = fieldOrder.value;
