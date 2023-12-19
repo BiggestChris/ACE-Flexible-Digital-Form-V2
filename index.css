@@ -87,6 +87,10 @@ button {
     width: 20%;
 }
 
+.sub-field > .current-item {
+    width: 70%;
+}
+
 .indent {
     padding-left: 20px;
 }
