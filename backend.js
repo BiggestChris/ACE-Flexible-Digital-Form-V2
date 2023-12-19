@@ -17,23 +17,23 @@ const fieldType = document.getElementsByName("field-type");
 
 console.log(fieldType);
 
-// Iterate through radio buttons to pull value of one selected
-let selectedValue;
-let selectedType;
-for (const selectedFieldType of fieldType) {
-  if (selectedFieldType.checked) {
-    console.log(selectedFieldType);
-    selectedValue = selectedFieldType.value;
-    selectedType = selectedFieldType;
-    break;
-  }
-}
-
-console.log(selectedValue);
 
 uploadBtn.addEventListener("click", function() {
     let orderValue = fieldOrder.value;
     let fieldValue = fieldName.value;
+
+    // Iterate through radio buttons to pull value of one selected
+    let selectedValue;
+    let selectedType;
+    for (const selectedFieldType of fieldType) {
+        if (selectedFieldType.checked) {
+            console.log(selectedFieldType);
+            selectedValue = selectedFieldType.value;
+            selectedType = selectedFieldType;
+            break;
+        }
+    }
+
     let typeValue = selectedValue;
     
     push(fieldInfo, {
