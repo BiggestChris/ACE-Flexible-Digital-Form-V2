@@ -98,6 +98,7 @@ button {
 .remove-btn {
     margin-left: auto;
     margin-right: auto;
+    display: block;
 }
 
 /* CSS to target tablets and mobiles */
