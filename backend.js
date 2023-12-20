@@ -84,7 +84,6 @@ onValue(fieldInfo, function(snapshot) {
         fieldCategoryDiv.innerHTML = 
         `
         <div class="sub-field field-key"><p class="sub-field-descriptor">field-key:</p><p id="current-item-unique-key">${itemsArray[i][0]}</p></div>
-        <hr />
         <div class="indent">
             <div  class="sub-field"><p class="sub-field-descriptor">order #:</p><p class="current-item">${item.order}</p></div>
             <div  class="sub-field"><p class="sub-field-descriptor">name:</p><p class="current-item">${item.field}</p></div>
