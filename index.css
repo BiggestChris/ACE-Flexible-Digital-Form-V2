@@ -106,6 +106,14 @@ button {
     display: block;
 }
 
+.back-end-field {
+    margin: 5px 0;
+    border: black 1px solid;
+    border-radius: 5px;
+    padding: 10px;  
+    display: flex;
+}
+
 /* CSS to target tablets and mobiles */
 @media (max-width: 768px) {
     html, body {
