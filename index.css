@@ -114,6 +114,12 @@ button {
     display: flex;
 }
 
+#field-order {
+    min-width: 50px;
+}
+
+
+
 /* CSS to target tablets and mobiles */
 @media (max-width: 768px) {
     html, body {
