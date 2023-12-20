@@ -164,7 +164,7 @@ button {
     display: flex;
     flex-direction: column;
     flex: 1; /* Distribute available space equally among items */
-    min-width: 220px; /* Minimum width for each item */
+    min-width: 200px; /* Minimum width for each item */
     max-width: calc(33.333% - 10px); /* Maximum width for each item, considering the gap */
 }
 
