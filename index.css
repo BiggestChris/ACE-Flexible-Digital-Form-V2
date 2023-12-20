@@ -23,7 +23,7 @@ html, body {
     width: 40%;
 }
 
-input, textarea, .radio-block {
+.field-input, .radio-block {
     padding: 5px;
     min-width: 200px;
     width: 60%;
@@ -137,7 +137,7 @@ button {
         min-width: 30px;
     }
 
-    input, textarea {
+    .field-input {
         width: 95%;
         font-size: 20px;
     }
