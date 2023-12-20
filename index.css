@@ -105,6 +105,7 @@ button {
 .indent {
     padding-left: 20px;
     border-top: solid black 1px;
+    padding-top: 10px;
 }
 
 .remove-btn {
