@@ -181,9 +181,10 @@ button {
 }
 
 .sub-field hr {
-    margin: 5px 0;
-    border: none;
-    border-top: 1px solid black;
+    margin: 10px 0;  /* Adjust the margin as needed */
+    border: 1px solid black;
+    border-color: black; /* Set the border color to black */
+    width: 100%;
 }
 
 /* CSS to target tablets and mobiles */
