@@ -154,11 +154,16 @@ button {
 
 #current-fields {
     display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 10px; /* Adjust the gap between items as needed */
 }
 
 .wrapper-div {
     display: flex;
     flex-direction: column;
+    flex: 1; /* Distribute available space equally among items */
+    min-width: 200px; /* Minimum width for each item */
+    max-width: calc(33.333% - 10px); /* Maximum width for each item, considering the gap */
 }
 
 /* CSS to target tablets and mobiles */
