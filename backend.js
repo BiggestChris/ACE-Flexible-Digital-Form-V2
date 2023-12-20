@@ -74,26 +74,33 @@ onValue(fieldInfo, function(snapshot) {
     for (let i = 0; i < itemsArray.length; i++) {
         let item = itemsArray[i][1]
              
-        
-        currentFields.innerHTML += 
+        // Create a wrapper div for field-category and the Remove button
+        const wrapperDiv = document.createElement("div");
+        wrapperDiv.classList.add("wrapper-div");
+
+        // Append field-category to the wrapper div
+        const fieldCategoryDiv = document.createElement("div");
+        fieldCategoryDiv.classList.add("field-category");
+        fieldCategoryDiv.innerHTML = 
         `
-        <hr>
-        <div class="field-category">
-            <div class="sub-field"><p class="field-descriptor">field:</p><p>${i}</p></div>
-            <div class="sub-field"><p class="field-descriptor">field-key:</p><p>${itemsArray[i][0]}</p></div>
-            <div class="indent">
-                <div  class="sub-field"><p class="field-descriptor">order #:</p><p class="current-item">${item.order}</p></div>
-                <div  class="sub-field"><p class="field-descriptor">name:</p><p class="current-item">${item.field}</p></div>
-                <div  class="sub-field"><p class="field-descriptor">price:</p><p class="current-item">${item.type}</p></div>
-            </div>
+        <div class="sub-field"><p class="field-descriptor">field:</p><p>${i}</p></div>
+        <div class="sub-field"><p class="field-descriptor">field-key:</p><p>${itemsArray[i][0]}</p></div>
+        <div class="indent">
+            <div  class="sub-field"><p class="field-descriptor">order #:</p><p class="current-item">${item.order}</p></div>
+            <div  class="sub-field"><p class="field-descriptor">name:</p><p class="current-item">${item.field}</p></div>
+            <div  class="sub-field"><p class="field-descriptor">price:</p><p class="current-item">${item.type}</p></div>
         </div>
         `
+        wrapperDiv.appendChild(fieldCategoryDiv);
         
+        // Create and append the Remove button to the wrapper div
         const removeButton = document.createElement("button");
         removeButton.textContent = "remove";
         removeButton.classList.add("remove-btn");
+        wrapperDiv.appendChild(removeButton);
         
-        currentFields.appendChild(removeButton);
+        // Append the wrapper div to the currentFields div
+        currentFields.appendChild(wrapperDiv);
         
         removeButton.addEventListener("click", function() {
             let exactLocationOfItemInDB = ref(database, `Field-info/${itemsArray[i][0]}`)
