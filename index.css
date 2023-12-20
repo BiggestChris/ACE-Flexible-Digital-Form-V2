@@ -91,6 +91,11 @@ button {
     width: 70%;
 }
 
+.sub-field > .field-descriptor, .sub-field > .current-item {
+    display: block;
+}
+
+
 .indent {
     padding-left: 20px;
 }
