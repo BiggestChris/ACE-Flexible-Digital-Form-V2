@@ -170,10 +170,12 @@ button {
 
 }
 
-#field-key{
+#field-key {
     display: flex;
     flex-direction: column;
 }
+
+
 
 /* CSS to target tablets and mobiles */
 @media (max-width: 768px) {
@@ -253,8 +255,11 @@ button {
         width: 80px;
     }
 
-
     #radio-field {
         height: 120px;
+    }
+
+    #current-item-unique-key {
+        font-size: 12px;
     }
 }
