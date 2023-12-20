@@ -259,7 +259,7 @@ button {
         height: 120px;
     }
 
-    #current-item-unique-key {
-        font-size: 12px;
+    .wrapper-div {
+        min-width: 240px; /* Minimum width for each item */
     }
 }
