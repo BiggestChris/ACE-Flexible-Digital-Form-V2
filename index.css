@@ -95,6 +95,11 @@ button {
     padding-left: 20px;
 }
 
+.remove-btn {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* CSS to target tablets and mobiles */
 @media (max-width: 768px) {
     html, body {

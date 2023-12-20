@@ -91,6 +91,7 @@ onValue(fieldInfo, function(snapshot) {
         
         const removeButton = document.createElement("button");
         removeButton.textContent = "remove";
+        removeButton.classList.add("remove-btn");
         
         currentFields.appendChild(removeButton);
         
