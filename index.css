@@ -265,5 +265,7 @@ button {
 
     #current-fields{
         align-items: center;
+        margin-left: auto; /* Auto left margin for horizontal centering */
+        margin-right: auto; /* Auto right margin for horizontal centering */
     }
 }
