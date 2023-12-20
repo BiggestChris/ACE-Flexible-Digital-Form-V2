@@ -60,6 +60,10 @@ button {
 .radio-btn {
     width: 20px;
     margin-left: -40px;
+    padding: 5px;
+    min-width: 200px;
+    width: 60%;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 .radio-lbl {
