@@ -157,6 +157,7 @@ button {
     flex-wrap: wrap; /* Allow items to wrap to the next line */
     gap: 10px; /* Adjust the gap between items as needed */
     justify-content: center; /* Center the items horizontally */
+    margin-top: 30px;
 }
 
 .wrapper-div {
@@ -174,6 +175,7 @@ button {
 #field-key {
     display: flex;
     flex-direction: column;
+    justify-content: left;
 }
 
 
