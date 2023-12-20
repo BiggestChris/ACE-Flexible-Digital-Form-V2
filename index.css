@@ -50,6 +50,7 @@ button {
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-left: -50px;
 }
 
 .radio-block {
@@ -111,18 +112,44 @@ button {
 }
 
 .back-end-field {
-    margin: 5px 0;
+    margin: 5px 5px;
     border: black 1px solid;
     border-radius: 5px;
-    padding: 10px;  
+    padding: 5px;  
     display: flex;
+    height: 70px;
+    align-items: center;
+}
+
+.back-end-field-descriptor {
+    margin-right: 0px;
+    width: 100px;
 }
 
 #field-order {
-    min-width: 20px;
+    width: 40px;
 }
 
+#field-order, #field-name {
+    padding: 10px;
+    font-family: Helvetica, Arial, sans-serif;
+}
 
+#back-end-input-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#back-end-page {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 85%;
+    min-width: 450px;
+}
 
 /* CSS to target tablets and mobiles */
 @media (max-width: 768px) {
@@ -180,5 +207,30 @@ button {
         width: 150px;
         margin-left: -40px;
         margin-right: auto;
+    }
+
+    #back-end-input-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .back-end-field {
+        padding: 10px;  
+        display: flex;
+        height: 70px;
+        align-items: center;
+        width: 250px;
+        justify-content: left;
+    }
+
+    .back-end-field-descriptor {
+        width: 80px;
+    }
+
+
+    #radio-field {
+        height: 120px;
     }
 }
