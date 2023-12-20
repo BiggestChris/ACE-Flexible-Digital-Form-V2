@@ -164,7 +164,7 @@ button {
     display: flex;
     flex-direction: column;
     flex: 1; /* Distribute available space equally among items */
-    min-width: 200px; /* Minimum width for each item */
+    min-width: 220px; /* Minimum width for each item */
     max-width: calc(33.333% - 10px); /* Maximum width for each item, considering the gap */
 }
 
@@ -176,7 +176,7 @@ button {
 }
 
 .sub-field-descriptor {
-    width: 50px;
+    width: 80px;
 }
 
 
@@ -264,7 +264,7 @@ button {
     }
 
     .wrapper-div {
-        min-width: 240px; /* Minimum width for each item */
+        min-width: 260px; /* Minimum width for each item */
     }
 
     #current-fields{
