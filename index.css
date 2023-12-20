@@ -166,6 +166,10 @@ button {
     max-width: calc(33.333% - 10px); /* Maximum width for each item, considering the gap */
 }
 
+.sub-field-descriptor {
+    
+}
+
 /* CSS to target tablets and mobiles */
 @media (max-width: 768px) {
     html, body {

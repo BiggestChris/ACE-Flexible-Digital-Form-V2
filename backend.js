@@ -83,12 +83,12 @@ onValue(fieldInfo, function(snapshot) {
         fieldCategoryDiv.classList.add("field-category");
         fieldCategoryDiv.innerHTML = 
         `
-        <div class="sub-field"><p class="field-descriptor">field:</p><p>${i}</p></div>
-        <div class="sub-field"><p class="field-descriptor">field-key:</p><p>${itemsArray[i][0]}</p></div>
+        <div class="sub-field"><p class="sub-field-descriptor">field:</p><p class="current-item-identifier">${i}</p></div>
+        <div class="sub-field"><p class="sub-field-descriptor">field-key:</p><p class="current-item-identifier">${itemsArray[i][0]}</p></div>
         <div class="indent">
-            <div  class="sub-field"><p class="field-descriptor">order #:</p><p class="current-item">${item.order}</p></div>
-            <div  class="sub-field"><p class="field-descriptor">name:</p><p class="current-item">${item.field}</p></div>
-            <div  class="sub-field"><p class="field-descriptor">price:</p><p class="current-item">${item.type}</p></div>
+            <div  class="sub-field"><p class="sub-field-descriptor">order #:</p><p class="current-item">${item.order}</p></div>
+            <div  class="sub-field"><p class="sub-field-descriptor">name:</p><p class="current-item">${item.field}</p></div>
+            <div  class="sub-field"><p class="sub-field-descriptor">price:</p><p class="current-item">${item.type}</p></div>
         </div>
         `
         wrapperDiv.appendChild(fieldCategoryDiv);
