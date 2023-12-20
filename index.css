@@ -167,7 +167,12 @@ button {
 }
 
 .sub-field-descriptor {
-    
+
+}
+
+#field-key{
+    display: flex;
+    flex-direction: column;
 }
 
 /* CSS to target tablets and mobiles */
