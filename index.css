@@ -76,6 +76,7 @@ button {
     flex-direction: column;
     border: black 1px solid;
     padding: 5px;
+    flex: 1;
 }
 
 .sub-field {
@@ -149,6 +150,10 @@ button {
     align-items: center;
     width: 85%;
     min-width: 450px;
+}
+
+#current-fields {
+    display: flex;
 }
 
 /* CSS to target tablets and mobiles */
