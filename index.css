@@ -180,7 +180,11 @@ button {
     font-weight: bold;
 }
 
-
+.sub-field hr {
+    margin: 5px 0;
+    border: none;
+    border-top: 1px solid black;
+}
 
 /* CSS to target tablets and mobiles */
 @media (max-width: 768px) {
