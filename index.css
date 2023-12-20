@@ -262,4 +262,8 @@ button {
     .wrapper-div {
         min-width: 240px; /* Minimum width for each item */
     }
+
+    #current-fields{
+        align-items: center;
+    }
 }
