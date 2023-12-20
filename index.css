@@ -168,11 +168,15 @@ button {
     max-width: calc(33.333% - 10px); /* Maximum width for each item, considering the gap */
 }
 
-#field-key {
+.field-key {
     display: flex;
     flex-direction: column;
     justify-content: left;
     align-items: start;
+}
+
+.sub-field-descriptor {
+    width: 50px;
 }
 
 
