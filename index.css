@@ -104,6 +104,7 @@ button {
 
 .indent {
     padding-left: 20px;
+    border-top: solid black 1px;
 }
 
 .remove-btn {
