@@ -9,7 +9,61 @@ const app = initializeApp(appSettings);
 const database = getDatabase(app);
 const databaseInfo = ref(database, "Flight-info");
 
-const numberOfInputs = 4; // Currently set how many inputs here
+
+
+// Code to pull out the fields from the database to populate
+const page = document.getElementById("page");
+const fieldInfo = ref(database, "Field-info");
+
+// Pull out the list of fields currently in the database
+const sortedQuery = query(fieldInfo, orderByChild('order'));
+
+let numberOfInputs = 0; // Set how many inputs here
+
+onValue(fieldInfo, function(snapshot) {
+    
+    let itemsArray = Object.entries(snapshot.val());
+    itemsArray.sort(compareByOrder);
+    
+    page.innerHTML = "";
+    
+    function compareByOrder(a, b) {
+        return a[1].order - b[1].order;
+    }
+    
+    for (let i = 0; i < itemsArray.length; i++) {
+        let item = itemsArray[i][1]
+
+        // Append create new fieldDiv
+        const fieldDiv = document.createElement("div");
+        fieldDiv.classList.add("field");
+        fieldDiv.innerHTML = 
+        `
+        <p class="field-descriptor" id="field-${i+1}">${item.field}</p>
+        `
+
+        if (item.type == "input-text") {
+            fieldDiv.innerHTML += 
+            `
+            <input class="field-input" type="text" id="input-${i+1}"></input>
+            `
+        } else {
+            fieldDiv.innerHTML += 
+            `
+            <textarea class="field-input" id="input-${i+1}"></textarea>
+            `
+        }
+
+        page.appendChild(fieldDiv);
+        
+        numberOfInputs = itemsArray.length;
+    }
+})
+
+
+
+//Code to then populate fields and inputs
+
 const delayTimer = 2000; // Milliseconds to delay download of database info after change
 
 let fieldsAndInputs = [];
@@ -146,53 +200,7 @@ function timestamp() {
 
 
 
-// Code to pull out the fields from the database to populate
 
-const page = document.getElementById("page");
-const fieldInfo = ref(database, "Field-info");
-
-// Pull out the list of fields currently in the database
-
-const sortedQuery = query(fieldInfo, orderByChild('order'));
-
-onValue(fieldInfo, function(snapshot) {
-    
-    let itemsArray = Object.entries(snapshot.val());
-    itemsArray.sort(compareByOrder);
-    
-    page.innerHTML = "";
-    
-    function compareByOrder(a, b) {
-        return a[1].order - b[1].order;
-    }
-    
-    for (let i = 0; i < itemsArray.length; i++) {
-        let item = itemsArray[i][1]
-
-        // Append create new fieldDiv
-        const fieldDiv = document.createElement("div");
-        fieldDiv.classList.add("field");
-        fieldDiv.innerHTML = 
-        `
-        <p class="field-descriptor" id="field-X${i}">${item.field}</p>
-        `
-
-        if (item.type == "input-text") {
-            fieldDiv.innerHTML += 
-            `
-            <input class="field-input" type="text" id="input-X${i}"></input>
-            `
-        } else {
-            fieldDiv.innerHTML += 
-            `
-            <textarea class="field-input" id="input-X${i}"></textarea>
-            `
-        }
-
-        page.appendChild(fieldDiv);
-        
-    }
-})
 
 
 
