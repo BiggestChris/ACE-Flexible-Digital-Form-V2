@@ -142,6 +142,10 @@ function timestamp() {
     return time;
 }
 
+
+
+
+
 // Code to pull out the fields from the database to populate
 
 const databaseFields = document.getElementById("database-fields");
@@ -181,9 +185,7 @@ onValue(fieldInfo, function(snapshot) {
         fieldCategoryDiv.classList.add("field-category");
         fieldCategoryDiv.innerHTML = 
         `
-        <div class="sub-field field-key"><p class="sub-field-descriptor">field-key:</p><p id="current-item-unique-key">${itemsArray[i][0]}</p></div>
         <div class="indent">
-            <div  class="sub-field"><p class="sub-field-descriptor">order #:</p><p class="current-item">${item.order}</p></div>
             <div  class="sub-field"><p class="sub-field-descriptor">name:</p><p class="current-item">${item.field}</p></div>
             <div  class="sub-field"><p class="sub-field-descriptor">price:</p><p class="current-item">${item.type}</p></div>
         </div>
@@ -195,10 +197,6 @@ onValue(fieldInfo, function(snapshot) {
         
     }
 })
-
-
-
-
 
 
 
