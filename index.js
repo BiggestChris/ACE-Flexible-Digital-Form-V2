@@ -190,20 +190,9 @@ onValue(fieldInfo, function(snapshot) {
         `
         wrapperDiv.appendChild(fieldCategoryDiv);
         
-        // Create and append the Remove button to the wrapper div
-        const removeButton = document.createElement("button");
-        removeButton.textContent = "remove";
-        removeButton.classList.add("remove-btn");
-        wrapperDiv.appendChild(removeButton);
-        
         // Append the wrapper div to the currentFields div
         databaseFields.appendChild(wrapperDiv);
         
-        removeButton.addEventListener("click", function() {
-            let exactLocationOfItemInDB = ref(database, `Field-info/${itemsArray[i][0]}`)
-            
-            remove(exactLocationOfItemInDB);
-        })
     }
 })
 
