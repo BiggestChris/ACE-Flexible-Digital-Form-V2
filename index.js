@@ -73,9 +73,10 @@ for (let i = 0; i < numberOfInputs; i++)
     fieldsAndInputs[i] = {};
     fieldsAndInputs[i].field = document.getElementById(`field-${i+1}`);
     fieldsAndInputs[i].input = document.getElementById(`input-${i+1}`);
+    console.log(fieldsAndInputs[i]);
 }
 
-console.log(fieldsAndInputs);
+
 
 // Upload to firebase whenever an input is changed (no button press needed)
 // This creates a new object in FireBase whenever data is updated, assume timestamp would be used to sort as it stands
