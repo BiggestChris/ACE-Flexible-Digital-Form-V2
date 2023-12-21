@@ -167,20 +167,10 @@ onValue(fieldInfo, function(snapshot) {
         return a[1].order - b[1].order;
     }
     
-    /* let dummyArray = [];
-    
-    for (let i = 0; i < itemsArray.length; i++) {
-        dummyArray.push(Number(itemsArray[i][1].order));
-    } */
-    
     for (let i = 0; i < itemsArray.length; i++) {
         let item = itemsArray[i][1]
-             
-        // Create a wrapper div for field-category and the Remove button
-        const wrapperDiv = document.createElement("div");
-        wrapperDiv.classList.add("wrapper-div");
 
-        // Append field-category to the wrapper div
+        // Append create new fieldDiv
         const fieldDiv = document.createElement("div");
         fieldDiv.classList.add("field");
         fieldDiv.innerHTML = 
@@ -188,24 +178,19 @@ onValue(fieldInfo, function(snapshot) {
         <p class="field-descriptor" id="field-X${i}">${item.field}</p>
         `
 
-
-        const inputDiv = document.createElement("div");
-        inputDiv.classList.add("field");
-
         if (item.type == "input-text") {
-            inputDiv.innerHTML = 
+            fieldDiv.innerHTML += 
             `
             <input class="field-input" type="text" id="input-X${i}"></input>
             `
         } else {
-            inputDiv.innerHTML = 
+            fieldDiv.innerHTML += 
             `
             <textarea class="field-input" id="input-X${i}"></textarea>
             `
         }
 
         databaseFields.appendChild(fieldDiv);
-        databaseFields.appendChild(inputDiv);
         
     }
 })
