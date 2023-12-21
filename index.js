@@ -61,7 +61,7 @@ onValue(fieldInfo, function(snapshot) {
 })
 
 
-
+console.log(numberOfInputs);
 //Code to then populate fields and inputs
 
 const delayTimer = 2000; // Milliseconds to delay download of database info after change
