@@ -19,6 +19,8 @@ const fieldInfo = ref(database, "Field-info");
 const sortedQuery = query(fieldInfo, orderByChild('order'));
 
 let numberOfInputs = 0; // Set how many inputs here
+let fieldsAndInputs = [];
+
 
 onValue(fieldInfo, function(snapshot) {
     
@@ -58,6 +60,15 @@ onValue(fieldInfo, function(snapshot) {
     }
 
     numberOfInputs = itemsArray.length;
+
+    // Needed to populate inputFields
+    for (let i = 0; i < numberOfInputs; i++)
+    {
+        fieldsAndInputs[i] = {};
+        fieldsAndInputs[i].field = document.getElementById(`field-${i+1}`);
+        fieldsAndInputs[i].input = document.getElementById(`input-${i+1}`);
+    }
+
 })
 
 
@@ -67,14 +78,7 @@ onValue(fieldInfo, function(snapshot) {
 
 const delayTimer = 2000; // Milliseconds to delay download of database info after change
 
-let fieldsAndInputs = [];
-for (let i = 0; i < numberOfInputs; i++)
-{
-    fieldsAndInputs[i] = {};
-    fieldsAndInputs[i].field = document.getElementById(`field-${i+1}`);
-    fieldsAndInputs[i].input = document.getElementById(`input-${i+1}`);
-    console.log(fieldsAndInputs[i]);
-}
+
 
 
 
