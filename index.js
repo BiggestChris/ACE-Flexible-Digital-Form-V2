@@ -24,7 +24,7 @@ let fieldsAndInputs = [];
 // Put inputElements into an array for current Event Listener function further below
 let inputFields = [];
 
-
+// HIGH PRIORITY - FUNCTION WON'T REFRESH DATA WHEN NEW FIELD UPLOADED - NEEDS FIXING
 onValue(fieldInfo, function(snapshot) {
     
     let itemsArray = Object.entries(snapshot.val());
@@ -85,6 +85,8 @@ onValue(fieldInfo, function(snapshot) {
             handleInputChange();
         });
     });
+
+    initialDataDownload(); //Re-run to populate new field refresh
 })
 
 
