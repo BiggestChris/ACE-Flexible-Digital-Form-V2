@@ -78,10 +78,6 @@ onValue(fieldInfo, function(snapshot) {
 
 const delayTimer = 2000; // Milliseconds to delay download of database info after change
 
-
-
-
-
 // Upload to firebase whenever an input is changed (no button press needed)
 // This creates a new object in FireBase whenever data is updated, assume timestamp would be used to sort as it stands
 
@@ -157,6 +153,7 @@ function handleInputChange() {
     }
     databaseObject.timestamp = timestamp(); // Adds in a timestamp to the database entry for future data sorting of entries
 
+    console.log(fieldsAndInputs);
     push(databaseInfo, databaseObject);
     
 }
