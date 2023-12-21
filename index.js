@@ -198,7 +198,6 @@ onValue(fieldInfo, function(snapshot) {
             <input class="field-input" type="text" id="input-X${i}"></input>
             `
         } else {
-            const inputDiv = document.createElement("div");
             inputDiv.innerHTML = 
             `
             <textarea class="field-input" id="input-X${i}"></textarea>
