@@ -55,9 +55,9 @@ onValue(fieldInfo, function(snapshot) {
         }
 
         page.appendChild(fieldDiv);
-        
-        numberOfInputs = itemsArray.length;
     }
+    
+    numberOfInputs = itemsArray.length;
 })
 
 
