@@ -160,7 +160,7 @@ onValue(fieldInfo, function(snapshot) {
     let itemsArray = Object.entries(snapshot.val());
     itemsArray.sort(compareByOrder);
     
-    page.innerHTML = ""
+    page.innerHTML = "";
     
     function compareByOrder(a, b) {
         return a[1].order - b[1].order;
