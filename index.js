@@ -204,11 +204,8 @@ onValue(fieldInfo, function(snapshot) {
             `
         }
 
-        wrapperDiv.appendChild(fieldDiv);
-        wrapperDiv.appendChild(inputDiv);
-        
-        // Append the wrapper div to the currentFields div
-        databaseFields.appendChild(wrapperDiv);
+        databaseFields.appendChild(fieldDiv);
+        databaseFields.appendChild(inputDiv);
         
     }
 })
