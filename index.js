@@ -58,7 +58,6 @@ onValue(fieldInfo, function(snapshot) {
     }
 
     numberOfInputs = itemsArray.length;
-    initialDataDownload();
 })
 
 
@@ -75,6 +74,8 @@ for (let i = 0; i < numberOfInputs; i++)
     fieldsAndInputs[i].field = document.getElementById(`field-${i+1}`);
     fieldsAndInputs[i].input = document.getElementById(`input-${i+1}`);
 }
+
+console.log(fieldsAndInputs);
 
 // Upload to firebase whenever an input is changed (no button press needed)
 // This creates a new object in FireBase whenever data is updated, assume timestamp would be used to sort as it stands
@@ -177,7 +178,7 @@ inputFields.forEach((inputElement) => {
 document.addEventListener('change', delayedDataDownload);
 
 // Trigger the initial data download on page load
-// initialDataDownload();
+initialDataDownload();
 
 // Timestamp function to calculate time down to milliseconds
 function timestamp() {
