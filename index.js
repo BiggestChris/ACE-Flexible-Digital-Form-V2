@@ -56,12 +56,14 @@ onValue(fieldInfo, function(snapshot) {
 
         page.appendChild(fieldDiv);
     }
-    
+
     numberOfInputs = itemsArray.length;
+    initialDataDownload();
 })
 
 
-console.log(numberOfInputs);
+
+
 //Code to then populate fields and inputs
 
 const delayTimer = 2000; // Milliseconds to delay download of database info after change
@@ -175,7 +177,7 @@ inputFields.forEach((inputElement) => {
 document.addEventListener('change', delayedDataDownload);
 
 // Trigger the initial data download on page load
-initialDataDownload();
+// initialDataDownload();
 
 // Timestamp function to calculate time down to milliseconds
 function timestamp() {
