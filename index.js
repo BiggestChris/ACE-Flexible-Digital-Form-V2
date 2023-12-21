@@ -188,16 +188,17 @@ onValue(fieldInfo, function(snapshot) {
         <p class="field-descriptor" id="field-X${i}">${item.field}</p>
         `
 
+
+        const inputDiv = document.createElement("div");
+        inputDiv.classList.add("field");
+
         if (item.type == "input-text") {
-            const inputDiv = document.createElement("div");
-            inputDiv.classList.add("sub-field");
             inputDiv.innerHTML = 
             `
             <input class="field-input" type="text" id="input-X${i}"></input>
             `
         } else {
             const inputDiv = document.createElement("div");
-            inputDiv.classList.add("sub-field");
             inputDiv.innerHTML = 
             `
             <textarea class="field-input" id="input-X${i}"></textarea>
