@@ -181,16 +181,31 @@ onValue(fieldInfo, function(snapshot) {
         wrapperDiv.classList.add("wrapper-div");
 
         // Append field-category to the wrapper div
-        const fieldCategoryDiv = document.createElement("div");
-        fieldCategoryDiv.classList.add("field-category");
-        fieldCategoryDiv.innerHTML = 
+        const fieldDiv = document.createElement("div");
+        fieldDiv.classList.add("field");
+        fieldDiv.innerHTML = 
         `
-        <div class="indent">
-            <div  class="sub-field"><p class="sub-field-descriptor">name:</p><p class="current-item">${item.field}</p></div>
-            <div  class="sub-field"><p class="sub-field-descriptor">price:</p><p class="current-item">${item.type}</p></div>
-        </div>
+        <p class="field-descriptor" id="field-X${i}">${item.field}</p>
         `
-        wrapperDiv.appendChild(fieldCategoryDiv);
+
+        if (item.type == "input-text") {
+            const inputDiv = document.createElement("div");
+            inputDiv.classList.add("sub-field");
+            inputDiv.innerHTML = 
+            `
+            <input class="field-input" type="text" id="input-X${i}"></input>
+            `
+        } else {
+            const inputDiv = document.createElement("div");
+            inputDiv.classList.add("sub-field");
+            inputDiv.innerHTML = 
+            `
+            <textarea class="field-input" id="input-X${i}"></textarea>
+            `
+        }
+
+        wrapperDiv.appendChild(fieldDiv);
+        wrapperDiv.appendChild(inputDiv);
         
         // Append the wrapper div to the currentFields div
         databaseFields.appendChild(wrapperDiv);
