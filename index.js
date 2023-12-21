@@ -148,7 +148,7 @@ function timestamp() {
 
 // Code to pull out the fields from the database to populate
 
-const databaseFields = document.getElementById("database-fields");
+const page = document.getElementById("page");
 const fieldInfo = ref(database, "Field-info");
 
 // Pull out the list of fields currently in the database
@@ -161,7 +161,7 @@ onValue(fieldInfo, function(snapshot) {
     itemsArray.sort(compareByOrder);
     
     
-    databaseFields.innerHTML = ""
+    // page.innerHTML = ""
     
     function compareByOrder(a, b) {
         return a[1].order - b[1].order;
@@ -190,7 +190,7 @@ onValue(fieldInfo, function(snapshot) {
             `
         }
 
-        databaseFields.appendChild(fieldDiv);
+        page.appendChild(fieldDiv);
         
     }
 })
