@@ -69,6 +69,18 @@ onValue(fieldInfo, function(snapshot) {
         fieldsAndInputs[i].input = document.getElementById(`input-${i+1}`);
     }
 
+    // Add a single event listener for all input fields to clear the timeout
+    inputFields.forEach((inputElement) => {
+        inputElement.addEventListener('input', clearDownloadTimeout);
+    });
+
+    // Add event listener to each input field for immediate handling
+    inputFields.forEach((inputElement) => {
+        inputElement.addEventListener('change', function () {
+            // Handle input changes immediately
+            handleInputChange();
+        });
+    });
 })
 
 
@@ -153,7 +165,6 @@ function handleInputChange() {
     }
     databaseObject.timestamp = timestamp(); // Adds in a timestamp to the database entry for future data sorting of entries
 
-    console.log(fieldsAndInputs);
     push(databaseInfo, databaseObject);
     
 }
@@ -162,19 +173,6 @@ function handleInputChange() {
 function clearDownloadTimeout() {
     clearTimeout(downloadTimeout);
 }
-
-// Add a single event listener for all input fields to clear the timeout
-inputFields.forEach((inputElement) => {
-    inputElement.addEventListener('input', clearDownloadTimeout);
-});
-
-// Add event listener to each input field for immediate handling
-inputFields.forEach((inputElement) => {
-    inputElement.addEventListener('change', function () {
-        // Handle input changes immediately
-        handleInputChange();
-    });
-});
 
 // Add a single event listener for all input fields for delayed data download
 document.addEventListener('change', delayedDataDownload);
