@@ -21,6 +21,9 @@ const sortedQuery = query(fieldInfo, orderByChild('order'));
 let numberOfInputs = 0; // Set how many inputs here
 let fieldsAndInputs = [];
 
+// Put inputElements into an array for current Event Listener function further below
+let inputFields = [];
+
 
 onValue(fieldInfo, function(snapshot) {
     
@@ -67,6 +70,7 @@ onValue(fieldInfo, function(snapshot) {
         fieldsAndInputs[i] = {};
         fieldsAndInputs[i].field = document.getElementById(`field-${i+1}`);
         fieldsAndInputs[i].input = document.getElementById(`input-${i+1}`);
+        inputFields[i] = fieldsAndInputs[i].input;
     }
 
     // Add a single event listener for all input fields to clear the timeout
@@ -92,13 +96,6 @@ const delayTimer = 2000; // Milliseconds to delay download of database info afte
 
 // Upload to firebase whenever an input is changed (no button press needed)
 // This creates a new object in FireBase whenever data is updated, assume timestamp would be used to sort as it stands
-
-// Put inputElements into an array for current Event Listener function further below
-let inputFields = [];
-for (let i = 0; i < fieldsAndInputs.length; i++)
-{
-    inputFields[i] = fieldsAndInputs[i].input;
-}
 
 let downloadTimeout;
 
