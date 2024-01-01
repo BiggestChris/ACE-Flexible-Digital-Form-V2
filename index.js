@@ -126,7 +126,7 @@ function initialDataDownload() {
         // Need to add a check that the field is present
         for (let i = 0; i < fieldsAndInputs.length; i++) {
             let fieldIdentifier = fieldsAndInputs[i].field.textContent;
-            fieldsAndInputs[i].input.value = 1;
+            // fieldsAndInputs[i].input.value = 1;
             if (item[fieldIdentifier]) {
                 fieldsAndInputs[i].input.value = item[fieldIdentifier];
             }
